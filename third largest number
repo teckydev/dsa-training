@@ -1,0 +1,31 @@
+“Find the THIRD largest number in an array”
+
+function findThirdLargest(arr) {
+  if (arr.length < 3) {
+    return "Array must have at least 3 elements";
+  }
+
+  let first = -Infinity;
+  let second = -Infinity;
+  let third = -Infinity;
+
+  for (let i = 0; i < arr.length; i++) {
+    let num = arr[i];
+
+    if (num > first) {
+      third = second;
+      second = first;
+      first = num;
+    } else if (num > second && num !== first) {
+      third = second;
+      second = num;
+    } else if (num > third && num !== first && num !== second) {
+      third = num;
+    }
+  }
+
+  return third;
+}
+
+// Call
+console.log(findThirdLargest([10, 5, 20, 8, 15])); // 10
