@@ -1,0 +1,16 @@
+function consecutive (arr){
+    let count = 0;
+    let maxCount = 0;
+    for(let i=1;i<arr.length;i++){
+        if(arr[i]===1){
+            count++;
+        }else{
+            count = 0;
+        }
+        if(count>maxCount){
+            maxCount = count;
+        }
+    }
+    return maxCount;
+}
+console.log(consecutive([1,1,0,1,1,1])); //3
